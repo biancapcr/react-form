@@ -1,7 +1,5 @@
 // mount app
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 
 // creazione dei dati
 const BlogArticles = [
@@ -12,5 +10,15 @@ const BlogArticles = [
   { id: 3, 
     title: "JSX Basics: From HTML to Components" },
 ];
+
+// definizione del componente principale
+const App = () => {
+  // inizializzazione dello stato con dati
+  const [articles, setArticles] = useState(BlogArticles);
+  // tracciamento del valore dell'input del nuovo titolo
+  const [newTitle, setNewTitle] = useState("");
+}
+
+
 
 export default App
