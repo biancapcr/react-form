@@ -11,14 +11,35 @@ const BlogArticles = [
     title: "JSX Basics: From HTML to Components" },
 ];
 
-// definizione del componente principale
+// definizione della componente principale
 const App = () => {
-  // inizializzazione dello stato con dati
+  // inizializzazione dello stato mediante con dati
   const [articles, setArticles] = useState(BlogArticles);
+
   // tracciamento del valore dell'input del nuovo titolo
   const [newTitle, setNewTitle] = useState("");
-}
 
+  // gestione submit del form
+  const handleSubmit = (e) => {
+    // blocco il refresh della pagina
+    e.preventDefault();
 
+    // validazione dell'input
+    if (newTitle.trim() === "") return;
+
+    // costruzione nuovo articolo
+    const newArticle = {
+      // generazione di un id
+      id: articles.length + 1,
+      title: newTitle,
+    };
+
+    // aggiornamento della lista
+    setArticles([...articles, newArticle]);
+
+    // svuotamento campo input
+    setNewTitle("");
+  };
+};
 
 export default App
