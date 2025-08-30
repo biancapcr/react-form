@@ -40,6 +40,35 @@ const App = () => {
     // svuotamento campo input
     setNewTitle("");
   };
-};
 
+ // renderizzazione UI
+  return (
+    <div className="container">
+      <h2 className="title">Lista Articoli Blog</h2>
+      <ul className="list">
+        {articles.map((article) => (
+          <li key={article.id} className="item">
+            {article.title}
+          </li>
+        ))}
+      </ul>
+
+      <form onSubmit={handleSubmit} className="form">
+        <input
+          type="text"
+          className="input"
+          placeholder="Nuovo articolo..."
+          value={newTitle}
+          onChange={(e) => setNewTitle(e.target.value)}
+          aria-label="Titolo del nuovo articolo"
+        />
+
+        <button type="submit" className="button">
+          Aggiungi
+        </button>
+      </form>
+    </div>
+  );
+  };
+  
 export default App
